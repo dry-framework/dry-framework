@@ -59,10 +59,10 @@ interface Table : TableReferenceExpression {
 
         override fun <C> addColumn(
             name: String,
-            sqlType: SqlType<C>,
+            type: SqlType<C>,
             options: ColumnOptions,
         ): Column<C> {
-            return DefaultColumn(factory, sqlType, this, name, options = options).also { columnByName[name] = it }
+            return DefaultColumn(factory, type, this, name, options = options).also { columnByName[name] = it }
         }
 
         // ---{ SqlExpression }---

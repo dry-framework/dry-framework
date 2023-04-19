@@ -16,10 +16,10 @@ publishing {
     repositories {
         maven {
             name = "DRY-Framework"
-            url = uri("https://maven.pkg.github.com/dry-framework/dry-framework")
+            url = uri("https://dry-framework@maven.pkg.github.com/dry-framework/dry-framework")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("DRY_USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("DRY_TOKEN")
+                username = System.getenv("DRY_USERNAME") // project.findProperty("gpr.user") as String? ?:
+                password = System.getenv("DRY_TOKEN") // project.findProperty("gpr.key") as String? ?:
             }
         }
     }

@@ -39,10 +39,10 @@ class DefaultScheduler(
         }
     }
 
-    override fun scheduleAtFixedRate(initialDelay: Long, delay: Long, unit: TimeUnit, runnable: Runnable) {
+    override fun scheduleAtFixedRate(initialDelay: Long, period: Long, unit: TimeUnit, runnable: Runnable) {
         val timerTask = ScheduledRunnableTimerTask(runnable, listener)
         try {
-            executor.scheduleAtFixedRate(timerTask, initialDelay, delay, unit)//.get()
+            executor.scheduleAtFixedRate(timerTask, initialDelay, period, unit)//.get()
         } catch (th: Throwable) {
             listener.onTaskExecutionError(timerTask.taskClass, th)
         }
